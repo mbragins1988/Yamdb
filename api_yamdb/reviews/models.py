@@ -35,7 +35,7 @@ class Genre(models.Model):
 
 
 class Title(models.Model):
-    """Модель для произведения"""
+    """Модель для произведения."""
 
     name = models.CharField(max_length=256, verbose_name="Название")
     year = models.IntegerField(
@@ -125,6 +125,7 @@ class Review(models.Model):
 
 class Comment(models.Model):
     """Модель, хранящая комментарии к отзывам о произведениях."""
+
     review = models.ForeignKey(
         Review,
         related_name='comments',
