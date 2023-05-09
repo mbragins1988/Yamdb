@@ -33,8 +33,7 @@ class TitleSafeMethodsSerializer(serializers.ModelSerializer):
 
     def get_rating(self, instance):
         all_rating = instance.reviews.aggregate(Avg('score'))
-        rating = all_rating.get('score__avg', 0)
-        return rating
+        return all_rating.get('score__avg', 0)
 
 
 class TitleUnsafeMethodsSerializer(serializers.ModelSerializer):
