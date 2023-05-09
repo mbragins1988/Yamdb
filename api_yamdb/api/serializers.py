@@ -3,6 +3,7 @@ from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import User
 
@@ -20,7 +21,8 @@ class GenreSerializer(serializers.ModelSerializer):
 
 
 class TitleSafeMethodsSerializer(serializers.ModelSerializer):
-    """Сериализатор для безопасных методов модели Title"""
+    """Сериализатор для безопасных методов модели Title."""
+
     category = CategorySerializer()
     genre = GenreSerializer(many=True)
     rating = serializers.SerializerMethodField()
@@ -36,7 +38,8 @@ class TitleSafeMethodsSerializer(serializers.ModelSerializer):
 
 
 class TitleUnsafeMethodsSerializer(serializers.ModelSerializer):
-    """Сериализатор для небезопасных методов модели Title"""
+    """Сериализатор для небезопасных методов модели Title."""
+
     genre = serializers.SlugRelatedField(
         read_only=False,
         slug_field='slug',
@@ -55,7 +58,7 @@ class TitleUnsafeMethodsSerializer(serializers.ModelSerializer):
 
 
 class CommentsSerializer(serializers.ModelSerializer):
-    """Сериалайзер для комментариев"""
+    """Сериалайзер для комментариев."""
 
     author = serializers.SlugRelatedField(
         slug_field='username',
@@ -69,7 +72,7 @@ class CommentsSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializers(serializers.ModelSerializer):
-    """Сериалайзер для отзывов"""
+    """Сериалайзер для отзывов."""
 
     author = serializers.SlugRelatedField(
         slug_field='username',

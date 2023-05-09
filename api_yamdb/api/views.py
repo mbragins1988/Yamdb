@@ -6,10 +6,6 @@ from rest_framework.decorators import action
 from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
-from reviews.models import Category, Genre, Review, Title
-from users.models import User
-
-from api_yamdb.settings import CONFIRMATION_CODE
 
 from .filters import TitleFilterSet
 from .mixins import ListCreateDestroyViewSet
@@ -20,6 +16,9 @@ from .serializers import (CategorySerializer, CommentsSerializer,
                           ReviewSerializers, SignupSerializer,
                           TitleSafeMethodsSerializer,
                           TitleUnsafeMethodsSerializer, UserSerializer)
+from api_yamdb.settings import CONFIRMATION_CODE
+from reviews.models import Category, Genre, Review, Title
+from users.models import User
 
 
 class CategoryViewSet(ListCreateDestroyViewSet):
