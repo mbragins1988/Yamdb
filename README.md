@@ -49,53 +49,50 @@ pip3 install -r requirements.txt
 
 Заполнение базы данных:
 
-'''
+```
 python manage.py import_csv
-'''
+```
 
 ### Как автоматически запустить проект на удаленном сервере после изменений
 
-Запустить и подготовить удаленный сервер
+Запустить и подготовить удаленный сервер.
 Войти на свой удаленный сервер в терминале (ssh your_login@pu.bl.ic.ip)
 - Остановить службу nginx
-'''
+```
 sudo systemctl stop nginx
-'''
+```
 
 - Установить docker
-'''
+```
 sudo apt install docker.io
-'''
+```
 
 - Установить docker-compose
-'''
+```
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-'''
-'''
+```
+```
 sudo chmod +x /usr/local/bin/docker-compose
-'''
+```
 
 Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
 
 Произвести необходимые изменения в проекте, сохранить файлы
 
 Добавить изменения
-
-'''
+```
 git add --all
-'''
+```
 
 Сделать коммит
-
-'''
+```
 git commit -m "Commit"
-'''
+```
 
 Отправить изменения в удалённый репозиторий
-
-'''
+```
 git push
-'''
+```
 
 В Git Actions workflow выполнит:
 - проверку кода на соответствие стандарту PEP8 с помощью пакета flake8
