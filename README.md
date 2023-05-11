@@ -9,7 +9,7 @@
 Пользователи могут оставлять комментарии к отзывам.
 Проект выполнялся командой из трех разработчиков.
 
-### Как запустить проект
+### Как запустить проект на локальном компьютере
 
 Клонировать репозиторий:
 
@@ -52,6 +52,57 @@ pip3 install -r requirements.txt
 '''
 python manage.py import_csv
 '''
+
+### Как автоматически запустить проект на удаленном сервере после изменений
+
+Запустить и подготовить удаленный сервер
+Войти на свой удаленный сервер в терминале (ssh your_login@pu.bl.ic.ip)
+- Остановить службу nginx
+'''
+sudo systemctl stop nginx
+'''
+
+- Установить docker
+'''
+sudo apt install docker.io
+'''
+
+- Установить docker-compose
+'''
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+'''
+'''
+sudo chmod +x /usr/local/bin/docker-compose
+'''
+
+Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
+
+Произвести необходимые изменения в проекте, сохранить файлы
+
+Добавить изменения
+
+'''
+git add --all
+'''
+
+Сделать коммит
+
+'''
+git commit -m "Commit"
+'''
+
+Отправить изменения в удалённый репозиторий
+
+'''
+git push
+'''
+
+В Git Actions workflow выполнит:
+- проверку кода на соответствие стандарту PEP8 с помощью пакета flake8
+- запустит pytest
+- соберет и доставит докер-образ для контейнера web на Docker Hub
+- деплой проекта на боевой сервер
+- отправит уведомление в Telegram о том, что процесс деплоя успешно завершился
 
 ### документация:
 http://127.0.0.1:8000/redoc/
