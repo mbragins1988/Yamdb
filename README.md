@@ -75,21 +75,21 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
+- Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
 
-Произвести необходимые изменения в проекте, сохранить файлы
+- Произвести необходимые изменения в проекте, сохранить файлы
 
-Добавить изменения
+- Добавить изменения
 ```
 git add --all
 ```
 
-Сделать коммит
+- Сделать коммит
 ```
 git commit -m "Commit"
 ```
 
-Отправить изменения в удалённый репозиторий
+- Отправить изменения в удалённый репозиторий
 ```
 git push
 ```
