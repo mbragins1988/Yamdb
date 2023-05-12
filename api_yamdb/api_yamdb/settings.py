@@ -24,10 +24,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', default=get_random_secret_key())
 DEBUG = os.getenv('DEBUG', defolt=False)
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', defolt=['*'])
-ALLOWED_HOSTS = [
-    'localhost',
-    '${{ secrets.ALLOWED_HOSTS }}',
-]
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '${{ secrets.ALLOWED_HOSTS }}',
+# ]
 
 # Application definition
 
