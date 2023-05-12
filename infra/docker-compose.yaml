@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: mbragin/yamdb:v1
+    image: mbragin/yamdb
     build: ../api_yamdb
     restart: always
     volumes:
