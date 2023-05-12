@@ -21,8 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', defolt=False)
 
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', defolt=['*'])
 ALLOWED_HOSTS = [
     'localhost',
     '${{ secrets.ALLOWED_HOSTS }}',
