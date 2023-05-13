@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default=get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['158.160.46.62']
 # ALLOWED_HOSTS = [
 #     'localhost',
 #     '${{ secrets.ALLOWED_HOSTS }}',
