@@ -108,10 +108,14 @@ git push
 - деплой проекта на боевой сервер
 - отправит уведомление в Telegram о том, что процесс деплоя успешно завершился
 
-В директории /home/mbragin/.local/bin выполнить миграции
+В директории /home/mbragin/.local/bin выполнить миграции и подключить статику
 
 ```
 docker-compose exec web python manage.py migrate
+```
+
+```
+sudo docker-compose exec -T web python manage.py collectstatic --no-input
 ```
 
 ### документация на локальном компьютере:
