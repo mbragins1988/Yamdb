@@ -15,7 +15,7 @@ CONFIRMATION_CODE = ''.join(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret
+# SECURITY WARNING: keep the secret key used in production secret.
 SECRET_KEY = os.getenv('SECRET_KEY', default='b$l($pru)pj4baz*fodksaywbj0spwiqxkofhaujwo#ugogq+_')
 
 # SECURITY WARNING: don't run with debug turned on in production
