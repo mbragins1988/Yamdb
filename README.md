@@ -57,17 +57,21 @@ python manage.py import_csv
 
 Запустить и подготовить удаленный сервер.
 Войти на свой удаленный сервер в терминале (ssh your_login@pu.bl.ic.ip)
-- Остановить службу nginx
+
+Остановить службу nginx
+
 ```
 sudo systemctl stop nginx
 ```
 
-- Установить docker
+Установить docker
+
 ```
 sudo apt install docker.io
 ```
 
-- Установить docker-compose
+Установить docker-compose
+
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
@@ -75,21 +79,24 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.3/docker
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-- Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
+Скопировать файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
 
-- Произвести необходимые изменения в проекте, сохранить файлы
+Произвести необходимые изменения в проекте, сохранить файлы
 
-- Добавить изменения
+Добавить изменения
+
 ```
 git add --all
 ```
 
-- Сделать коммит
+Сделать коммит
+
 ```
 git commit -m "Commit"
 ```
 
-- Отправить изменения в удалённый репозиторий
+Отправить изменения в удалённый репозиторий
+
 ```
 git push
 ```
@@ -100,6 +107,12 @@ git push
 - соберет и доставит докер-образ для контейнера web на Docker Hub
 - деплой проекта на боевой сервер
 - отправит уведомление в Telegram о том, что процесс деплоя успешно завершился
+
+В директории /home/mbragin/.local/bin выполнить миграции
+
+```
+docker-compose exec web python manage.py migrate
+```
 
 ### документация на локальном компьютере:
 http://127.0.0.1:8000/redoc/
